@@ -19,7 +19,7 @@ const bot = module.exports = new builder.UniversalBot(connector, [
     // conversation will start here
     (session, args, next) => {
         session.send(`Hi there! I'm Ogrebot. I'm here to help with your pain.`);
-        session.send(`Let's start the first dialog, which will ask you your name.`);
+        //session.send(`Let's start the first dialog, which will ask you your name.`);
 
         // Launch the getName dialog using beginDialog
         // When beginDialog completes, control will be passed
@@ -58,6 +58,10 @@ const bot = module.exports = new builder.UniversalBot(connector, [
             // no valid response received - End the conversation
             session.endConversation(`Sorry, I didn't understand the response. Let's start over.`);
         }
+    },
+
+    (session, results, next) => {
+      session.endConversation('Thanks for using Ogrebot! Goodbye.');
     },
 ]);
 
